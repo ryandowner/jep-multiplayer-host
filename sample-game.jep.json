@@ -1,0 +1,421 @@
+{
+  "title": "Fun Facts & Trivia",
+  "author": "Ryan & Krista",
+  "copyright": "(c) 2025 Ryan & Krista",
+  "note": "A fun game for testing our dual-mode Jeopardy system!",
+  "boards": [
+    {
+      "categoryNames": [
+        "ANIMALS",
+        "MOVIES",
+        "FOOD",
+        "SPORTS",
+        "MUSIC",
+        "GEOGRAPHY"
+      ],
+      "categories": [
+        {
+          "name": "ANIMALS",
+          "note": "Name the animal!",
+          "clues": [
+            {
+              "clue": "This big cat is known as the 'King of the Jungle'",
+              "answer": "Lion",
+              "value": 200
+            },
+            {
+              "clue": "This flightless bird is the fastest runner on two legs",
+              "answer": "Ostrich",
+              "value": 400
+            },
+            {
+              "clue": "This marine mammal is known for its intelligence and playful nature",
+              "answer": "Dolphin",
+              "value": 600
+            },
+            {
+              "clue": "This primate is our closest living relative",
+              "answer": "Chimpanzee",
+              "value": 800
+            },
+            {
+              "clue": "This giant sea creature can grow up to 100 feet long",
+              "answer": "Blue Whale",
+              "value": 1000
+            }
+          ]
+        },
+        {
+          "name": "MOVIES",
+          "note": "Name the movie!",
+          "clues": [
+            {
+              "clue": "This 1994 film about a box of chocolates won Tom Hanks an Oscar",
+              "answer": "Forrest Gump",
+              "value": 200
+            },
+            {
+              "clue": "This 1977 space opera introduced us to Luke Skywalker",
+              "answer": "Star Wars",
+              "value": 400
+            },
+            {
+              "clue": "This 1997 disaster film about a ship that hits an iceberg",
+              "answer": "Titanic",
+              "value": 600
+            },
+            {
+              "clue": "This 1985 film about time travel starred Michael J. Fox",
+              "answer": "Back to the Future",
+              "value": 800
+            },
+            {
+              "clue": "This 1993 dinosaur adventure film from Steven Spielberg",
+              "answer": "Jurassic Park",
+              "value": 1000
+            }
+          ]
+        },
+        {
+          "name": "FOOD",
+          "note": "Name the food!",
+          "clues": [
+            {
+              "clue": "This Italian dish is made with flour, eggs, and water",
+              "answer": "Pasta",
+              "value": 200
+            },
+            {
+              "clue": "This fruit is known as the 'King of Fruits' in Southeast Asia",
+              "answer": "Durian",
+              "value": 400
+            },
+            {
+              "clue": "This Mexican dish consists of a corn tortilla filled with meat and vegetables",
+              "answer": "Taco",
+              "value": 600
+            },
+            {
+              "clue": "This French pastry is made with layers of butter and dough",
+              "answer": "Croissant",
+              "value": 800
+            },
+            {
+              "clue": "This Japanese dish consists of vinegared rice with various ingredients",
+              "answer": "Sushi",
+              "value": 1000
+            }
+          ]
+        },
+        {
+          "name": "SPORTS",
+          "note": "Name the sport or athlete!",
+          "clues": [
+            {
+              "clue": "This sport is played on ice with sticks and a puck",
+              "answer": "Hockey",
+              "value": 200
+            },
+            {
+              "clue": "This basketball player wore number 23 for the Chicago Bulls",
+              "answer": "Michael Jordan",
+              "value": 400
+            },
+            {
+              "clue": "This sport is known as 'The Beautiful Game'",
+              "answer": "Soccer",
+              "value": 600
+            },
+            {
+              "clue": "This tennis player has won 23 Grand Slam singles titles",
+              "answer": "Serena Williams",
+              "value": 800
+            },
+            {
+              "clue": "This Olympic sport involves running, jumping, and throwing events",
+              "answer": "Track and Field",
+              "value": 1000
+            }
+          ]
+        },
+        {
+          "name": "MUSIC",
+          "note": "Name the artist or song!",
+          "clues": [
+            {
+              "clue": "This British band sang 'Hey Jude' and 'Let It Be'",
+              "answer": "The Beatles",
+              "value": 200
+            },
+            {
+              "clue": "This 1985 charity song featured many famous artists",
+              "answer": "We Are the World",
+              "value": 400
+            },
+            {
+              "clue": "This pop star is known as the 'Queen of Pop'",
+              "answer": "Madonna",
+              "value": 600
+            },
+            {
+              "clue": "This 1977 song by the Bee Gees was featured in 'Saturday Night Fever'",
+              "answer": "Stayin' Alive",
+              "value": 800
+            },
+            {
+              "clue": "This rock band's 1991 album 'Nevermind' featured 'Smells Like Teen Spirit'",
+              "answer": "Nirvana",
+              "value": 1000
+            }
+          ]
+        },
+        {
+          "name": "GEOGRAPHY",
+          "note": "Name the place!",
+          "clues": [
+            {
+              "clue": "This is the largest country in the world by land area",
+              "answer": "Russia",
+              "value": 200
+            },
+            {
+              "clue": "This city is known as 'The Big Apple'",
+              "answer": "New York City",
+              "value": 400
+            },
+            {
+              "clue": "This is the largest desert in the world",
+              "answer": "Sahara Desert",
+              "value": 600
+            },
+            {
+              "clue": "This is the highest mountain in the world",
+              "answer": "Mount Everest",
+              "value": 800
+            },
+            {
+              "clue": "This is the largest ocean on Earth",
+              "answer": "Pacific Ocean",
+              "value": 1000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryNames": [
+        "FAMOUS QUOTES",
+        "INVENTIONS",
+        "COLORS",
+        "NUMBERS",
+        "WEATHER",
+        "BOOKS"
+      ],
+      "categories": [
+        {
+          "name": "FAMOUS QUOTES",
+          "note": "Who said it?",
+          "clues": [
+            {
+              "clue": "'I have a dream'",
+              "answer": "Martin Luther King Jr.",
+              "value": 200
+            },
+            {
+              "clue": "'Ask not what your country can do for you'",
+              "answer": "John F. Kennedy",
+              "value": 400
+            },
+            {
+              "clue": "'To be or not to be'",
+              "answer": "William Shakespeare",
+              "value": 600
+            },
+            {
+              "clue": "'The only thing we have to fear is fear itself'",
+              "answer": "Franklin D. Roosevelt",
+              "value": 800
+            },
+            {
+              "clue": "'I think, therefore I am'",
+              "answer": "René Descartes",
+              "value": 1000
+            }
+          ]
+        },
+        {
+          "name": "INVENTIONS",
+          "note": "Name the invention!",
+          "clues": [
+            {
+              "clue": "This device was invented by Alexander Graham Bell in 1876",
+              "answer": "Telephone",
+              "value": 200
+            },
+            {
+              "clue": "This invention by Thomas Edison in 1879 revolutionized lighting",
+              "answer": "Light Bulb",
+              "value": 400
+            },
+            {
+              "clue": "This invention by the Wright brothers in 1903 allowed human flight",
+              "answer": "Airplane",
+              "value": 600
+            },
+            {
+              "clue": "This invention by Tim Berners-Lee in 1989 changed communication forever",
+              "answer": "World Wide Web",
+              "value": 800
+            },
+            {
+              "clue": "This invention by Steve Jobs and Steve Wozniak in 1976 started the personal computer revolution",
+              "answer": "Apple Computer",
+              "value": 1000
+            }
+          ]
+        },
+        {
+          "name": "COLORS",
+          "note": "Name the color!",
+          "clues": [
+            {
+              "clue": "This color is the combination of red and blue",
+              "answer": "Purple",
+              "value": 200
+            },
+            {
+              "clue": "This color is the combination of red and yellow",
+              "answer": "Orange",
+              "value": 400
+            },
+            {
+              "clue": "This color is the combination of blue and yellow",
+              "answer": "Green",
+              "value": 600
+            },
+            {
+              "clue": "This color is the absence of all colors",
+              "answer": "Black",
+              "value": 800
+            },
+            {
+              "clue": "This color is the presence of all colors",
+              "answer": "White",
+              "value": 1000
+            }
+          ]
+        },
+        {
+          "name": "NUMBERS",
+          "note": "Name the number!",
+          "clues": [
+            {
+              "clue": "This number is the square root of 144",
+              "answer": "12",
+              "value": 200
+            },
+            {
+              "clue": "This number is the sum of the first 10 counting numbers",
+              "answer": "55",
+              "value": 400
+            },
+            {
+              "clue": "This number is the product of 7 and 8",
+              "answer": "56",
+              "value": 600
+            },
+            {
+              "clue": "This number is the cube of 3",
+              "answer": "27",
+              "value": 800
+            },
+            {
+              "clue": "This number is the factorial of 5",
+              "answer": "120",
+              "value": 1000
+            }
+          ]
+        },
+        {
+          "name": "WEATHER",
+          "note": "Name the weather phenomenon!",
+          "clues": [
+            {
+              "clue": "This weather event is a rotating column of air",
+              "answer": "Tornado",
+              "value": 200
+            },
+            {
+              "clue": "This weather event is a tropical cyclone with winds over 74 mph",
+              "answer": "Hurricane",
+              "value": 400
+            },
+            {
+              "clue": "This weather event is a sudden electrical discharge in the atmosphere",
+              "answer": "Lightning",
+              "value": 600
+            },
+            {
+              "clue": "This weather event is frozen precipitation in the form of ice crystals",
+              "answer": "Snow",
+              "value": 800
+            },
+            {
+              "clue": "This weather event is a visible mass of water droplets in the atmosphere",
+              "answer": "Cloud",
+              "value": 1000
+            }
+          ]
+        },
+        {
+          "name": "BOOKS",
+          "note": "Name the book or author!",
+          "clues": [
+            {
+              "clue": "This author wrote 'Pride and Prejudice'",
+              "answer": "Jane Austen",
+              "value": 200
+            },
+            {
+              "clue": "This book by J.K. Rowling features a boy wizard",
+              "answer": "Harry Potter",
+              "value": 400
+            },
+            {
+              "clue": "This author wrote 'The Great Gatsby'",
+              "answer": "F. Scott Fitzgerald",
+              "value": 600
+            },
+            {
+              "clue": "This book by George Orwell features Big Brother",
+              "answer": "1984",
+              "value": 800
+            },
+            {
+              "clue": "This author wrote 'To Kill a Mockingbird'",
+              "answer": "Harper Lee",
+              "value": 1000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryNames": ["FINAL JEOPARDY"],
+      "categories": [
+        {
+          "name": "FINAL JEOPARDY",
+          "clues": [
+            {
+              "clue": "This is the only planet in our solar system that rotates clockwise",
+              "answer": "Venus",
+              "value": 0,
+              "wagerable": true,
+              "longForm": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+} 
