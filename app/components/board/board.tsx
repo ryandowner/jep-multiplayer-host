@@ -8,6 +8,7 @@ import type { Board, Clue } from "~/models/convert.server";
 import { generateGrid } from "~/utils";
 import useSoloAction from "~/utils/use-solo-action";
 import useGameSound from "~/utils/use-sound";
+import { useSearchParams } from "@remix-run/react";
 
 import { Category } from "./category";
 import { ClueComponent } from "./clue";
@@ -24,6 +25,7 @@ function BoardComponent({
   onFocusClue,
   onKeyDownClue,
   tbodyRef,
+  isHostMode,
 }: {
   board: Board;
   hasBoardControl: boolean;
@@ -32,6 +34,7 @@ function BoardComponent({
   onFocusClue: (i: number, j: number) => void;
   onKeyDownClue: (event: React.KeyboardEvent, i: number, j: number) => void;
   tbodyRef: React.RefObject<HTMLTableSectionElement>;
+  isHostMode: boolean;
 }) {
   // Transpose the clues so we can render them in a table.
   const numRows = Math.max(...board.categories.map((c) => c.clues.length));
@@ -79,6 +82,7 @@ function BoardComponent({
                       onFocus={() => onFocusClue(i, j)}
                       onClick={() => onClickClue(i, j)}
                       onKeyDown={(e) => onKeyDownClue(e, i, j)}
+                      isHostMode={isHostMode}
                     />
                   ) : (
                     <td key={`clue-${i}-${j}`} />
@@ -96,7 +100,11 @@ function BoardComponent({
 export function ConnectedBoardComponent({ roomId, userId }: RoomProps) {
   const { board, boardControl, isAnswered, soloDispatch } = useEngineContext();
   const fetcher = useFetcher<Action>();
+  const [searchParams] = useSearchParams();
   useSoloAction(fetcher, soloDispatch);
+
+  // Check if we're in host mode
+  const isHostMode = searchParams.get("mode") === "host";
 
   const tbodyRef = React.useRef<HTMLTableSectionElement | null>(null);
   const [focusedClueIdx, setFocusedClue] = React.useState<[number, number]>();
@@ -207,6 +215,7 @@ export function ConnectedBoardComponent({ roomId, userId }: RoomProps) {
       onClickClue={handleClickClue}
       onFocusClue={handleFocusClue}
       onKeyDownClue={handleKeyDown}
+      isHostMode={isHostMode}
     />
   );
 }

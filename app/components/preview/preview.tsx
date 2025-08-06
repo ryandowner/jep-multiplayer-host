@@ -132,7 +132,7 @@ function PreviewRoundDialog({
             ))}
           </div>
           <HowToPlay />
-          <Link className="mb-2 text-sm" to="/howto">
+          <Link className="mb-2 text-sm text-white hover:text-blue-200 underline decoration-white hover:decoration-blue-200 visited:text-white visited:decoration-white visited:text-purple-700 visited:decoration-purple-500" to="/howto">
             Practice buzzing &rarr;
           </Link>
         </div>

@@ -11,6 +11,7 @@ interface Props {
   answered: boolean;
   clue: Clue;
   hasBoardControl: boolean;
+  isHostMode: boolean;
   onFocus: NonNullable<ButtonProps["onFocus"]>;
   onClick: NonNullable<ButtonProps["onClick"]>;
   onKeyDown: NonNullable<ButtonProps["onKeyDown"]>;
@@ -18,7 +19,7 @@ interface Props {
 
 const ClueButton = React.forwardRef<HTMLButtonElement, ButtonProps & Props>(
   (
-    { answered, clue, hasBoardControl, onFocus, onClick, onKeyDown, ...rest },
+    { answered, clue, hasBoardControl, isHostMode, onFocus, onClick, onKeyDown, ...rest },
     ref,
   ) => {
     const [loading, setLoading] = React.useState(false);
@@ -81,6 +82,29 @@ const ClueButton = React.forwardRef<HTMLButtonElement, ButtonProps & Props>(
           <span className="text-sm sm:text-3xl lg:text-4xl">$</span>
           <span className="text-md sm:text-4xl lg:text-5xl">{clue.value}</span>
         </p>
+        {/* Show answer in host mode */}
+        {isHostMode && (
+          <div className="mt-1 text-center">
+            <p className="text-xs text-cyan-300 font-medium">
+              {clue.answer}
+            </p>
+            {answered && (
+              <p className="text-xs text-green-300 font-medium">
+                ✓ Answered
+              </p>
+            )}
+            {clue.wagerable && (
+              <p className="text-xs text-orange-300 font-medium">
+                💰 Wagerable
+              </p>
+            )}
+            {clue.longForm && (
+              <p className="text-xs text-purple-300 font-medium">
+                📝 Long Form
+              </p>
+            )}
+          </div>
+        )}
       </button>
     );
   },

@@ -2,7 +2,7 @@
   "title": "Fun Facts & Trivia",
   "author": "Ryan & Krista",
   "copyright": "(c) 2025 Ryan & Krista",
-  "note": "A fun game for testing our dual-mode Jeopardy system!",
+  "note": "A fun game for testing the Jeopardy system!",
   "boards": [
     {
       "categoryNames": [
@@ -67,7 +67,8 @@
             {
               "clue": "This 1985 film about time travel starred Michael J. Fox",
               "answer": "Back to the Future",
-              "value": 800
+              "value": 800,
+              "wagerable": true
             },
             {
               "clue": "This 1993 dinosaur adventure film from Steven Spielberg",
