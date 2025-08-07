@@ -29,6 +29,7 @@ import { ConnectedNextClueForm as NextClueForm } from "./next-clue-form";
 import { ReadClueTimer } from "./read-clue-timer";
 import ShinyText from "./shiny-text";
 import { ConnectedWagerForm as WagerForm } from "./wager-form";
+import { HostModeCheckForm } from "./host-check-form";
 
 /** HostModeAnswer displays the answer in host mode */
 function HostModeAnswer({ answer }: { answer: string }) {
@@ -693,6 +694,13 @@ function RevealAnswerToBuzzerPrompt({ roomId, userId, isHostMode }: RoomProps & 
         onBuzz={() => null}
         showAnswer={false}
       />
+      {isHostMode && 
+          <HostModeCheckForm
+            roomId={roomId}
+            userId={userId}
+            longForm={false}
+          />
+      }
       {canShowAnswer ? (
         <CheckForm
           roomId={roomId}
@@ -780,6 +788,13 @@ function RevealAnswerLongFormPrompt({ roomId, userId, isHostMode }: RoomProps & 
         onBuzz={() => null}
         showAnswer
       />
+      {isHostMode && 
+          <HostModeCheckForm
+            roomId={roomId}
+            userId={userId}
+            longForm={true}
+          />
+      }
       {canCheckAnswer ? (
         <CheckForm
           roomId={roomId}

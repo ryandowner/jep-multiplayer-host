@@ -53,6 +53,8 @@ export async function loader({ request }: LoaderFunctionArgs) {
 export default function Index() {
   const data = useLoaderData<typeof loader>();
   const [params] = useSearchParams();
+  const isHostMode = params.get("mode") === "host";
+  const isLoggedIn = data.authSession !== null;
 
   // Upload
   const uploadFetcher = useFetcher<never>();
@@ -174,6 +176,8 @@ export default function Index() {
             key={`game-${i}`}
             game={game}
             solve={solvesMap.get(game.id)}
+            isLoggedIn={isLoggedIn}
+            isHostMode={isHostMode}
           />
         ))}
       </div>
