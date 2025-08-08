@@ -32,7 +32,7 @@ import { ConnectedWagerForm as WagerForm } from "./wager-form";
 import { HostModeCheckForm } from "./host-check-form";
 
 /** HostModeAnswer displays the answer in host mode */
-function HostModeAnswer({ answer }: { answer: string }) {
+function HostModeAnswer({ answer, children }: { answer: string, children?: React.ReactNode }) {
   return (
     <div className="p-4 bg-blue-900/50 border border-cyan-500">
       <p className="text-center text-cyan-300 font-bold text-lg mb-2">
@@ -41,6 +41,7 @@ function HostModeAnswer({ answer }: { answer: string }) {
       <p className="text-center text-cyan-200 font-korinna text-xl">
         {answer}
       </p>
+      {children}
     </div>
   );
 }
@@ -537,9 +538,6 @@ function ReadCluePrompt({
         </span>
       </div>
       
-      {/* Show answer in host mode */}
-      {isHostMode && <HostModeAnswer answer={clue.answer} />}
-      
       <ClueText
         clue={clue.clue}
         canBuzz={!lockout && myBuzzDurationMs === undefined && !isHostMode}
@@ -549,14 +547,19 @@ function ReadCluePrompt({
         showAnswer={false}
         answer={clue.answer}
       />
-      <div className="invisible">
-        <CheckForm
-          roomId={roomId}
-          userId={userId}
-          showAnswer={false}
-          onClickShowAnswer={() => null}
-        />
-      </div>
+      {/* Show answer in host mode */}
+      {isHostMode ? (
+        <HostModeAnswer answer={clue.answer} />
+      ) : (
+        <div className="invisible">
+          <CheckForm
+            roomId={roomId}
+            userId={userId}
+            showAnswer={false}
+            onClickShowAnswer={() => null}
+          />
+        </div>
+      )}
       <Countdown startTime={undefined} />
       <Buzzes buzzes={optimisticBuzzes} />
     </>
@@ -682,9 +685,6 @@ function RevealAnswerToBuzzerPrompt({ roomId, userId, isHostMode }: RoomProps & 
         )}
       </div>
 
-      {/* Show answer in host mode */}
-      {isHostMode && <HostModeAnswer answer={clue.answer} />}
-
       <ClueText
         answer={clue.answer}
         canBuzz={false}
@@ -694,26 +694,33 @@ function RevealAnswerToBuzzerPrompt({ roomId, userId, isHostMode }: RoomProps & 
         onBuzz={() => null}
         showAnswer={false}
       />
-      {isHostMode && 
-          <HostModeCheckForm
-            roomId={roomId}
-            userId={userId}
-            longForm={false}
-          />
-      }
-      {canShowAnswer ? (
-        <CheckForm
-          roomId={roomId}
-          userId={userId}
-          showAnswer={canShowAnswer && showAnswer}
-          onClickShowAnswer={
-            canShowAnswer ? () => setShowAnswer(true) : () => null
-          }
-        />
+      {/* Show answer in host mode */}
+      {isHostMode ? (
+        <>
+          <HostModeAnswer answer={clue.answer}>
+            <HostModeCheckForm
+              roomId={roomId}
+              userId={userId}
+            />
+          </HostModeAnswer>
+        </>
       ) : (
-        <p className="p-2 text-center font-bold text-white">
-          Waiting for response from {winningPlayerName}...
-        </p>
+        <>
+          {canShowAnswer ? (
+            <CheckForm
+              roomId={roomId}
+              userId={userId}
+              showAnswer={canShowAnswer && showAnswer}
+              onClickShowAnswer={
+                canShowAnswer ? () => setShowAnswer(true) : () => null
+              }
+            />
+          ) : (
+            <p className="p-2 text-center font-bold text-white">
+              Waiting for response from {winningPlayerName}...
+            </p>
+          )}
+        </>
       )}
       <Countdown startTime={showAnswer ? undefined : countdownStartedAt} />
       <Buzzes />
@@ -776,9 +783,6 @@ function RevealAnswerLongFormPrompt({ roomId, userId, isHostMode }: RoomProps & 
         )}
       </div>
 
-      {/* Show answer in host mode */}
-      {isHostMode && <HostModeAnswer answer={clue.answer} />}
-
       <ClueText
         answer={clue.answer}
         canBuzz={false}
@@ -789,13 +793,15 @@ function RevealAnswerLongFormPrompt({ roomId, userId, isHostMode }: RoomProps & 
         showAnswer
       />
       {isHostMode && 
+        <HostModeAnswer answer={clue.answer} >
           <HostModeCheckForm
             roomId={roomId}
             userId={userId}
             longForm={true}
           />
+        </HostModeAnswer>
       }
-      {canCheckAnswer ? (
+      {canCheckAnswer && !isHostMode ? (
         <CheckForm
           roomId={roomId}
           userId={userId}
@@ -873,9 +879,6 @@ function RevealAnswerToAllPrompt({ roomId, userId, isHostMode }: RoomProps & { i
         )}
       </div>
 
-      {/* Show answer in host mode */}
-      {isHostMode && <HostModeAnswer answer={clue.answer} />}
-
       <ClueText
         clue={clue.clue}
         canBuzz={false}
@@ -885,6 +888,8 @@ function RevealAnswerToAllPrompt({ roomId, userId, isHostMode }: RoomProps & { i
         showAnswer
         answer={clue.answer}
       />
+      {/* Show answer in host mode */}
+      {isHostMode && <HostModeAnswer answer={clue.answer} />}
       <NextClueForm roomId={roomId} userId={userId} />
       <Countdown startTime={undefined} />
       <Buzzes />

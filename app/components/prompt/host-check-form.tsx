@@ -18,19 +18,15 @@ export function HostModeCheckForm({
   }
 
   // For regular clues, just show the check form for the winning buzzer
-  if (!longForm && winningBuzzer) {
+  if (winningBuzzer && !longForm) {
     return (
-      <div className="p-2 bg-blue-900/30 border border-cyan-500/50 rounded-lg">
-        <p className="text-center text-cyan-300 font-bold text-sm mb-2">
-          HOST MODE - Check Winner's Answer
-        </p>
-        <CheckForm
-          roomId={roomId}
-          userId={winningBuzzer}
-          showAnswer={true}
-          onClickShowAnswer={() => {}} // Host doesn't need to click reveal
-        />
-      </div>
+      <CheckForm
+        roomId={roomId}
+        userId={winningBuzzer}
+        showAnswer={true}
+        onClickShowAnswer={() => {}} // Host doesn't need to click reveal
+        isHostMode={true}
+      />
     );
   }
 
